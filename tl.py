@@ -292,7 +292,8 @@ def dbook():
 
     return demjson.encode({'result': count})
 
-#下载图片
+
+# 下载图片
 @app.route('/hblib/downpic', methods=['GET', 'POST'])
 def downpic():
     if request.method == 'GET':
@@ -306,4 +307,4 @@ def downpic():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run('0.0.0.0', port=80)
