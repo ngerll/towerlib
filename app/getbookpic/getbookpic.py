@@ -48,7 +48,7 @@ def getbookpic(isbn, picname):
 
     count = 0
 
-    filename = "/home/webapp/towerlib/static/bookpic/" + picname + '.jpg'
+    filename = "/var/www/app/static/bookpic/" + picname + '.jpg'
 
     if len(result) > 0:
         if os.path.exists(filename):
