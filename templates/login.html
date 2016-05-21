@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <style>
+        body {
+            background: url(/static/loginBg.gif) repeat-x;
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", STHeiti, MingLiu;
+        }
+
+        div.prompt span {
+            color: #db0b16 !important;
+            font-weight: bold;
+        }
+
+        div.prompt #msg {
+            color: #db0b16 !important;
+            font-weight: bold;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1 class="text-danger"><strong>中国铁塔湖北省分公司员工书屋管理系统</strong></h1>
+    </div>
+
+
+    <div class="row">
+
+        <form class="form-horizontal" action="/hblib/render/" method="post" id="loginform">
+
+            <div class="form-group">
+                <label for="inputusername" class="col-xs-3 control-label">用户名</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="inputusername" name="username" placeholder="请输入用户名"
+                           required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputpassword" class="col-xs-3 control-label">密码</label>
+                <div class="col-xs-6">
+                    <input type="password" class="form-control" id="inputpassword" name="password"
+                           placeholder="请输入密码" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-4">
+                    <button type="submit" class="btn btn-danger">登录</button>
+                </div>
+                <div class="col-xs-3 text-center">
+                    <button type="button" class="btn btn-danger" onclick="changepasswd()">修改密码</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="alert alert-warning col-xs-6 col-xs-offset-3 text-center" role="alert" id="loginmsg">
+            <p id="msg">{{ result }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="form-horizontal" id="changeform">
+
+            <div class="form-group">
+                <label for="changeusername" class="col-xs-3 control-label">用户名</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="changeusername" name="username" placeholder="请输入用户名"
+                           required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="oldpassword" class="col-xs-3 control-label">原密码</label>
+                <div class="col-xs-6">
+                    <input type="password" class="form-control" id="oldpassword" name="oldpasswd"
+                           placeholder="请输入原密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="newpassword" class="col-xs-3 control-label">新密码</label>
+                <div class="col-xs-6">
+                    <input type="password" class="form-control" id="newpassword" name="newpasswd"
+                           placeholder="请输入新密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-4">
+                    <button type="button" class="btn btn-danger" id="changepass">提交</button>
+                </div>
+                <div class="col-xs-3 text-center">
+                    <button class="btn btn-danger" onclick="gotologin()">返回登录页</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row text-center">
+         <hr>
+         <div class="copyright">ChinaTower HuBei Branch @2016 鄂ICP备16006631号-1</div>
+    </div>
+</div>
+
+
+</div>
+<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='login.js') }}"></script>
+
+
+</body>
+</html>

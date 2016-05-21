@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>湖北铁塔书屋</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--弹出框-->
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="submitresult">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary text-center"><strong>温馨提示</strong></h5>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-danger text-center" id="subresult">
+
+                </h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="getborrowbookinfo()" data-dismiss="modal">知道了
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--页面-->
+
+
+<div class="container">
+
+    <!--头部-->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-dark bg-primary bg-faded">
+
+                <div class="col-xs-3 hidden-md-up">
+                    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navheader">
+                        &#9776;
+                    </button>
+                </div>
+
+                <a class="navbar-brand" href="#">湖北铁塔书屋</a>
+                <a class="navbar-brand" href="#" id="area"></a>
+
+                <ul class="nav navbar-nav hidden-sm-down">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/hblib/render">借阅管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hblib/bookinput">书籍管理</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <hr class="divider hidden-md-up ">
+            <div class="collapse col-xs-12" id="navheader">
+                <div class="bg-inverse p-a">
+                    <a class="navbar-brand" href="/hblib/render">借阅管理</a>
+                    <a class="navbar-brand" href="/hblib/bookinput">书籍管理</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr class="divider">
+
+
+    <!--书籍查询借阅-->
+
+
+    <div class="col-lg-4 col-xs-12">
+
+        <div class="form-group input-group">
+            <span class="input-group-addon">借书人</span>
+            <input type="text" class="form-control" placeholder="" id="nameqry">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" id="borrowqry"
+                                    onclick="getborrowbookinfo()">
+                                查询
+                            </button>
+                        </span>
+        </div>
+
+        <div class="text-center hidden">
+            <div class="alert alert-warning" style="display:none;" id="noinfo">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-12">
+        <hr>
+        <div class="row">
+            <table class="table table-striped table-bordered table-hover responsive">
+                <thead class="thead bg-danger ">
+                <tr>
+                    <th class="text-center">书名</th>
+                    <th class="text-center">借阅人</th>
+                    <th class="text-center">借阅时间</th>
+                    <th class="text-center">操作</th>
+                </tr>
+                </thead>
+                <tbody id="bookinfos">
+
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>
+
+
+    <!--底部-->
+
+    <div class="col-xs-12">
+        <hr class="divider">
+        <div class="row">
+            <div class="text-center">
+                <p>ChinaTower HuBei Branch @2016 鄂ICP备16006631号-1</p>
+                <div class="invisible" id="username">{{ areaname }}</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>  <!--continer-->
+
+<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='return.js') }}"></script>
+
+</body>
+</html>

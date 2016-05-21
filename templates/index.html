@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>湖北铁塔图书借阅</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+    <style>
+        /*
+     * Globals
+     */
+
+        /* Links */
+        a,
+        a:focus,
+        a:hover {
+            color: #fff;
+        }
+
+        /* Custom default button */
+        .btn-secondary,
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            color: #333;
+            text-shadow: none; /* Prevent inheritence from `body` */
+            background-color: #fff;
+            border: .05rem solid #fff;
+        }
+
+        /*
+         * Base structure
+         */
+
+        html,
+        body {
+            height: 100%;
+            background-image: url('../static/slider1.jpg');
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", STHeiti, MingLiu;
+        }
+
+        body {
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        }
+
+        /* Extra markup and styles for table-esque vertical and horizontal centering */
+        .site-wrapper {
+            display: table;
+            width: 100%;
+            height: 100%; /* For at least Firefox */
+            min-height: 100%;
+            -webkit-box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+            box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+        }
+
+        .site-wrapper-inner {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .cover-container {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* Padding for spacing */
+        .inner {
+            padding: 2rem;
+            font-size: 8pt;
+        }
+
+        /*
+         * Header
+         */
+
+        .masthead {
+            margin-bottom: 2rem;
+        }
+
+        .masthead-brand {
+            margin-bottom: 0;
+        }
+
+        .nav-masthead .nav-link {
+            padding: .25rem 0;
+            font-weight: bold;
+            color: rgba(255, 255, 255, .5);
+            background-color: transparent;
+            border-bottom: .25rem solid transparent;
+        }
+
+        .nav-masthead .nav-link + .nav-link {
+            margin-left: 1rem;
+        }
+
+        .nav-masthead .active {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        @media (min-width: 48em) {
+            .masthead-brand {
+                float: left;
+            }
+
+            .nav-masthead {
+                float: right;
+            }
+        }
+
+        /*
+         * Cover
+         */
+
+        .cover {
+            padding: 0 1.5rem;
+
+        }
+
+        .cover .btn-lg {
+            padding: .75rem 1.25rem;
+            font-weight: bold;
+        }
+
+        /*
+         * Footer
+         */
+
+        .mastfoot {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        /*
+         * Affix and center
+         */
+
+        @media (min-width: 40em) {
+            /* Pull out the header and footer */
+            .masthead {
+                position: fixed;
+                top: 0;
+            }
+
+            .mastfoot {
+                position: fixed;
+                bottom: 0;
+            }
+
+            /* Start the vertical centering */
+            .site-wrapper-inner {
+                vertical-align: middle;
+            }
+
+            /* Handle the widths */
+            .masthead,
+            .mastfoot,
+            .cover-container {
+                width: 100%; /* Must be percentage or pixels for horizontal alignment */
+            }
+        }
+
+        @media (min-width: 62em) {
+            .masthead,
+            .mastfoot,
+            .cover-container {
+                width: 42rem;
+            }
+        }
+
+        #selectarea {
+            font-size: 12pt;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">ChinaTower</h3>
+                    <nav class="nav nav-masthead">
+                        <a class="nav-link active" href="#">首页</a>
+                        <a class="nav-link" href="/hblib/login">后台管理</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="inner cover" id="main">
+                <h1 class="cover-heading">中国铁塔</h1>
+                <h4>湖北省分公司员工书屋</h4>
+                <hr>
+                <div class="lead">
+                    <label for="exampleSelect1">选择所属单位</label>
+                    <select class="form-control btn-danger" id="selectarea">
+                        <option value="">..请选择</option>
+                        <option value="branch">省分</option>
+                        <option value="huangshi">黄石</option>
+                    </select>
+                </div>
+                <div class="lead">
+                    <hr>
+                    <button type="button" class="btn btn-success btn-sm" onclick="login()">登录</button>
+                </div>
+
+            </div>
+
+            <div class="mastfoot">
+                <hr>
+                <div class="inner">
+                    <p>ChinaTower HuBei Branch @2016 鄂ICP备16006631号-1</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script>
+
+    function login() {
+        var $loginarea = $('#selectarea').val();
+        window.location.href = '/hblib/' + $loginarea;
+    }
+
+
+</script>
+</body>
+
+
+</html>

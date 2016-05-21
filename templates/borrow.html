@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>湖北铁塔图书借阅</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+
+
+    <style>
+        body {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bimg {
+            width: 160px;
+            height: auto;
+        }
+
+        @media screen and (min-width: 1201px) {
+            .book {
+                width: 30%;
+                box-shadow: 5px 5px 1px #cccccc;
+                margin: 20px;
+                padding: 5px;
+            }
+        }
+
+        @media screen and (max-width: 1200px) {
+            .book {
+                width: 45%;
+                box-shadow: 5px 5px 1px #cccccc;
+                margin: 10px;
+                padding: 5px;
+            }
+        }
+
+        @media screen and (max-width: 750px) {
+            .book {
+                width: 95%;
+                box-shadow: 5px 5px 1px #cccccc;
+                margin: 5px;
+                padding: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<!--提交借阅人弹出框-->
+
+
+<div class="modal fade" id="buttonalert">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><h5 class="text-primary text-center">请完善借阅信息</h5></div>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="borrowbookuser" class="form-control" placeholder="请输入您的姓名">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="borrowconfirm">确定</button>
+                <button type="button" class="btn btn-default" id="cancelborrow">取消</button>
+                <div class="collapse" id="collapsename">
+                    <hr>
+                    <h5 class="text-center text-danger">姓名不能为空</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--提交结果弹出框-->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="submitresult">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <div class="modal-title"><h5 class="text-primary text-center"><strong>温馨提示</strong></h5></div>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger" id="subresult">
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">知道了
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--页面-->
+
+
+<div class="container-fluid">
+
+    <!--头部-->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <nav class="navbar navbar-dark bg-primary bg-faded">
+
+                <div class="col-xs-3 hidden-md-up">
+                    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navheader">
+                        &#9776;
+                    </button>
+                </div>
+
+                <a class="navbar-brand" href="#">湖北铁塔书屋</a>
+                <a class="navbar-brand" href="#" id="areaname"></a>
+
+                <!--     <ul class="nav navbar-nav hidden-sm-down">
+                         <li class="nav-item active">
+                             <a class="nav-link" href="http://www.cisotec.net/hblib">借阅图书</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="http://www.cisotec.net/hblib/render">归还图书</a>
+                         </li>
+                     </ul> -->
+            </nav>
+
+            <hr class="divider hidden-md-up ">
+            <!--
+                    <div class="collapse col-xs-12" id="navheader">
+                        <div class="bg-inverse p-a">
+                            <a class="navbar-brand" href="http://www.cisotec.net/hblib">借阅图书</a>
+                            <a class="navbar-brand" href="http://www.cisotec.net/hblib/render">归还图书</a>
+                        </div>
+                    </div>
+                -->
+        </div>
+    </div>
+
+
+    <hr class="divider">
+
+
+    <!--书籍借阅-->
+    <div class="row">
+        <div class="col-xs-6">
+            <select class="form-control" id="qrytype">
+                <option value="bookname">书名</option>
+                <option value="bookkind">类型</option>
+                <option value="bookwriter">作者</option>
+                <option value="booksend">出版社</option>
+            </select>
+        </div>
+        <div class="col-xs-6">
+            <div>
+                <input type="text" class="form-control" placeholder="" id="qryword">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <hr class="divider">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-primary btn-block" onclick="readinfo()">查询</button>
+        </div>
+    </div>
+
+
+    <!--借阅明细-->
+
+    <hr class="divider">
+
+
+    <div class="row" id="bookinfos">
+
+
+    </div>
+
+
+    <!--底部-->
+    <div class="col-xs-12">
+        <hr class="divider">
+        <div class="row">
+            <div class="text-center">
+                <p>ChinaTower HuBei Branch @2016</p>
+                <p>鄂ICP备16006631号-1</p>
+                <div class="invisible" id="areacode">{{ areacode }}</div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+
+
+</div>  <!--continer-->
+
+
+<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/masonry/4.1.0/masonry.pkgd.min.js"></script>
+<script src="//cdn.bootcss.com/jquery.imagesloaded/4.1.0/imagesloaded.min.js"></script>
+<script src="{{ url_for('static', filename='tl.js') }}"></script>
+
+
+</body>
+</html>

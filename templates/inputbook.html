@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+    <title>湖北铁塔书屋</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #delbookinfo {
+            min-height: 200px;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        #inputbookinfo {
+            min-height: 200px;
+            overflow-y: auto;
+            max-height: 500px;
+        }
+
+        .file-custom::after {
+            content: "";
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!--删除弹窗-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="delsubmit"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">删除书籍</h4>
+            </div>
+            <div class="modal-body" id="delbookinfo">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="delbtn" onclick="delbook()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--录入弹窗-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="inputsubmit"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">录入书籍确认</h4>
+            </div>
+            <div class="modal-body" id="inputbookinfo">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="inputjson" onclick="saveinput()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--结果弹窗-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="resmodal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">结果</h4>
+            </div>
+            <div class="modal-body" id="resinfo">
+
+            </div>
+            <div class="modal-footer" id="resfooter">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 主页 -->
+<div class="container">
+
+
+    <div class="row">
+        <nav class="navbar navbar-dark bg-primary bg-faded">
+            <div class="col-xs-3 hidden-md-up">
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navheader">
+                    &#9776;
+                </button>
+            </div>
+
+            <a class="navbar-brand" href="#">湖北铁塔书屋</a>
+            <a class="navbar-brand" href="#" id="area">{{ areaname }}</a>
+
+            <ul class="nav navbar-nav hidden-sm-down">
+                <li class="nav-item">
+                    <a class="nav-link" href="/hblib/render">借阅管理</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/hblib/bookinput">书籍管理</a>
+                </li>
+            </ul>
+        </nav>
+
+        <hr class="divider hidden-md-up ">
+        <div class="collapse col-xs-12" id="navheader">
+            <div class="bg-inverse p-a">
+                <a class="navbar-brand" href="/hblib/render">借阅管理</a>
+                <a class="navbar-brand" href="/hblib/bookinput">书籍管理</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#main" class="nav-link active" role="tab" data-toggle="tab">书籍查询</a>
+        </li>
+        <li class="nav-item">
+            <a href="#input" class="nav-link" role="tab" data-toggle="tab">书籍录入</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="main">
+            <div class="row">
+                <hr>
+                <div class="col-xs-4">
+                    <select class="form-control" id="qrytype">
+                        <option value="bookname">书名</option>
+                        <option value="bookkind">类型</option>
+                        <option value="bookwriter">作者</option>
+                        <option value="booksend">出版社</option>
+                    </select>
+                </div>
+                <div class="col-xs-4">
+                    <div>
+                        <input type="text" class="form-control" placeholder="" id="qryword">
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-primary btn-block" onclick="readinfo()">查询</button>
+                </div>
+            </div>
+
+            <!--   <div class="row">
+                   <hr class="divider">
+                   <div class="col-xs-12">
+                       <button type="button" class="btn btn-primary btn-block" onclick="readinfo()">查询</button>
+                   </div>
+               </div> -->
+
+
+            <div class="row">
+                <hr>
+                <table class="table table-bordered table-hover table-sm">
+                    <thead class="thead bg-danger text-center">
+                    <tr>
+                        <td>选择</td>
+                        <td>书名</td>
+                        <td>ISBN</td>
+                        <td>作者</td>
+                        <td>出版社</td>
+                        <td>类型</td>
+                        <td>数量</td>
+                        <td>剩余数量</td>
+                    </tr>
+                    </thead>
+                    <tbody class="text-center" id="booklist">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-success btn-sm btn-block" id="selectall">全选</button>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-primary btn-sm btn-block" id="cancelselect">全不选</button>
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-danger btn-sm btn-block" id="delbookbtn"
+                            onclick="showdelmodal()">删除
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane fade active" id="input">
+            <div class="row">
+                <hr>
+                <div class="jumbotron">
+                    <h4 class="text-danger">选择书籍明细文件</h4>
+                    <form id="file">
+                        <label class="file">
+                            <input type="file" name="file" class="file" id="bookfile">
+                            <span class="file-custom"></span>
+                        </label>
+                    </form>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="button" class="btn btn-info btn-lg" onclick="upload()" value="导入"></button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn  btn-lg"><a
+                                    href="{{ url_for('static', filename='bookinput-templates.xlsx') }}">
+                                模板下载</a></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="jumbotron">
+                    <h4 class="text-danger">书籍展示图片下载</h4>
+                    <p class="lead">导入新的书籍后，请点击下方”下载图片“按钮，获取书籍封面图片，用于在借阅页面进行展现</p>
+                    <hr class="m-y-md">
+                    <div class="lead">
+                        <a class="btn btn-primary btn-block" role="button" onclick="downpic()">下载图片</a>
+                    </div>
+                    <hr>
+                    <div id="downres">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr class="divider">
+        <div class="text-center">
+            <p>ChinaTower HuBei Branch @2016 鄂ICP备16006631号-1</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='inputbook.js') }}"></script>
+
+</body>
+</html>
