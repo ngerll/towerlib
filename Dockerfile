@@ -14,11 +14,9 @@ copy supervisord.conf /etc/supervisord.conf
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 copy nginx.conf /etc/nginx/nginx.conf
 
-WORKDIR /var/www/app
-RUN sudo service nginx start
-RUN sudo supervisord -c /etc/supervisord.conf
-RUN sudo supervisorctl -c /etc/supervisord.conf start all
-RUN sudo supervisorctl -c /etc/supervisord.conf status
-
 EXPOSE 80
+
+WORKDIR /var/www/app
+ENTRYPOINT sudo service nginx restart && gunicorn -w3 -b127.0.0.1:5000 tl:app
+
 
