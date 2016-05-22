@@ -1,1 +1,263 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('$(k).1K(4(){$.1J({1C:E});$("#P").q()});$(\'1N\').F(\'1X.L.g\',\'.g\',4(){$(1Z).1U(\'L.g\')});$("#1Q").F(\'1u\',4(){3 9=$(":G");C(3 i=0;i<9.r;i++){9[i].B=R}});$("#1R").F(\'1u\',4(){3 9=$(":G");C(3 i=0;i<9.r;i++){9[i].B=E}});4 1L(){3 9=$(":G");C(3 i=0;i<9.r;i++){c(9[i].B==R){}}}4 1S(){3 9=$(":G");3 s=0;C(3 i=0;i<9.r;i++){c(9[i].B==R){s=s+1}}c(s>0){$("#17").g(\'u\');N=[];$("#17").F(\'1E.L.g\',4(){$("#1F").q();C(3 i=0;i<9.r;i++){c(9[i].B==R){3 1b=$(9[i]).1G().1M().A();$("#1F").S("<p>1O£º"+1b+"</p>");N.1j(9[i].1g)}}k.o("16").1t("f-D",N);N=[]})}}4 D(){$("#T").H();1l=k.o("16").1z("f-D");f={\'f\':1l};t=\'/K/D\';$("#h").q();$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>12£¬1s...</8></6>");$.1A(t,f,4(5,y){$("#h").q();c(y==\'Q\'&&5.e>0){$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>1P"+5.e+"1w</8></6>")}w{$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>1Y!</8></6>")}$("#T").u();14()},\'J\');$("#17").g(\'H\');$("#1x").g(\'u\');k.o("16").V("f-D")}4 14(){3 11=[];$("#v").q();3 19=$("#1W").U();3 18=$("#1I").U();3 z=$("#W").A();1h=\'/K/1H\';1i={\'19\':19,\'18\':18,\'z\':z};$.1B(1h,1i,4(1e){11.1j(1e.e);11.M(4(v){1f(v)})},\'J\')}4 1f(v){v.M(4(d){3 1p="<1k> "+"<b><2j 1d=\'G\' 1g=\'"+d.2k+"\'></b>"+" <b> "+d.2l+"</b> "+" <b> "+d.X+"</b> "+" <b> "+d.2i+"</b> "+" <b> "+d.2f+"</b> "+" <b> "+d.2g+"</b> "+" <b> "+d.2h+"</b> "+" <b> "+d.2q+"</b> "+" </1k>";$("#v").S(1p)})}$("#1q").2o(4(){$(".15-1m").A();3 Z=$("#1q").U().2m(\'\\\\\');3 1n=Z[Z.r-1];$(".15-1m").A(1n)});4 1c(){3 1a=2n 2p(k.o("15"));3 a=$("#W").A();k.o("x").V(\'f-I\');$("#x").u();$.2e({t:"/K/1c",1d:"24",f:1a,25:E,26:E,1C:E,Q:4(5){c(5.e!=\'23\'&&5.e.r>0){$("#13").g(\'u\');$("#13").F(\'1E.L.g\',4(){$("#Y").q();5.e.M(4(d){c(d[1]!=\'X\'){c(d[7]==a){$("#Y").S("<p>"+d[0]+"</p>")}w{$("#Y").S("<p>20¡®21¡¯22£¬2b£¡")}}})});3 O=0;3 1v=10.2c(10.1r(5)).e;1v.M(4(5){c(5[1]!=\'X\'){c(5[7]==a){}w{O=O+1}}});c(O==0){k.o("x").1t(\'f-I\',10.1r(5))}w{$("#x").H()}}},2d:\'J\'})}4 2a(){$("#T").H();t=\'/K/I\';$("#h").q();$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>12£¬1s...</8></6>");3 1y=k.o("x").1z("f-I");$.1A(t,1y,4(5,y){$("#h").q();c(y==\'Q\'&&5.e>0){$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>27"+5.e+"1w</8></6>")}w{$("#h").j("<6 l=\'2 2-m\' n=\'2\'><8>29!</8></6>")}$("#T").u();14()},\'J\');$("#13").g(\'H\');$("#1x").g(\'u\');k.o("x").V("f-I")}4 1D(){$("#P").j("<6 l=\'2 2-m\' n=\'2\'><8>28£¬12....</8></6>");3 z=$("#W").A();3 1o={\'z\':z};t=\'/K/1D\';$.1B(t,1o,4(5,y){c(y==\'Q\'&&5.e>0){$("#P").j("<6 l=\'2 2-m\' n=\'2\'><8>"+5.e+"1V</8></6>")}w{$("#P").j("<6 l=\'2 2-m\' n=\'2\'><8>1T</8></6>")}},\'J\')}',62,151,'||alert|var|function|res|div||strong|checks||td|if|book|result|data|modal|resinfo||html|document|class|info|role|getElementById||empty|length||url|show|booklist|else|inputjson|status|areaname|text|checked|for|delbook|false|on|checkbox|hide|inputbook|json|hblib|bs|map|checkbooks|count|downres|success|true|append|resfooter|val|removeAttribute|area|isbn|inputbookinfo|fileinfo|JSON|booksinfo|ÇëÉÔµÈ|inputsubmit|readinfo|file|delbtn|delsubmit|keyword|keytype|filedata|wantdel|upload|type|respone|showbook|value|binfourl|qrydata|push|tr|delbookid|custom|filename|params|bookinfo|bookfile|stringify|ÕıÔÚ´¦ÀíÖĞ|setAttribute|click|inputbooks|±¾|resmodal|jsondata|getAttribute|post|get|cache|downpic|shown|delbookinfo|parent|getbooklist|qryword|ajaxSetup|ready|delselect|next|body|½«ÒªÉ¾³ıµÄÊé¼®Îª|ÒÑ³É¹¦É¾³ıÊé¼®|selectall|cancelselect|showdelmodal|ÎŞÊé¼®Í¼Æ¬ĞèÏÂÔØ|removeData|±¾Êé¼®Í¼Æ¬ÒÑ¸üĞÂ|qrytype|hidden|É¾³ıÊ§°Ü|this|µ¼ÈëÎÄ¼şÖĞµÄ|ÊĞÖİ|×Ö¶ÎÄÚÈİÓëµ±Ç°¹ÜÀíºóÌ¨ËùÊôÊĞÖİ²»·û|Error|POST|contentType|processData|ÒÑ³É¹¦Â¼ÈëÊé¼®|ÕıÔÚÏÂÔØÖĞ|Â¼ÈëÊ§°Ü|saveinput|Çë¼ì²éµ¼ÈëÎÄ¼ş|parse|dataType|ajax|booksend|bookkind|booknumber|bookwriter|input|id|bookname|split|new|change|FormData|bookamount'.split('|'),0,{}))
+/**
+ * Created by Administrator on 2016/5/19.
+ */
+
+$(document).ready(function () {
+    $.ajaxSetup({cache: false});
+    $("#downres").empty();
+});
+
+$('body').on('hidden.bs.modal', '.modal', function () {
+    $(this).removeData('bs.modal');
+});
+
+//å…¨é€‰
+$("#selectall").on('click', function () {
+    var checks = $(":checkbox");
+
+    for (var i = 0; i < checks.length; i++) {
+        checks[i].checked = true
+    }
+});
+
+//å…¨ä¸é€‰
+$("#cancelselect").on('click', function () {
+    var checks = $(":checkbox");
+
+    for (var i = 0; i < checks.length; i++) {
+        checks[i].checked = false
+    }
+});
+
+function delselect() {
+    var checks = $(":checkbox");
+    for (var i = 0; i < checks.length; i++) {
+        if (checks[i].checked == true) {
+
+        }
+    }
+}
+
+//åˆ é™¤ä¹¦ç±å¼¹çª—
+function showdelmodal() {
+    var checks = $(":checkbox");
+    var s = 0;
+    for (var i = 0; i < checks.length; i++) {
+        if (checks[i].checked == true) {
+            s = s + 1
+        }
+    }
+
+    if (s > 0) {
+        $("#delsubmit").modal('show');
+
+        checkbooks = [];
+
+        $("#delsubmit").on('shown.bs.modal', function () {
+            $("#delbookinfo").empty();
+
+            for (var i = 0; i < checks.length; i++) {
+                if (checks[i].checked == true) {
+                    var wantdel = $(checks[i]).parent().next().text();
+
+                    $("#delbookinfo").append("<p>å°†è¦åˆ é™¤çš„ä¹¦ç±ä¸ºï¼š" + wantdel + "</p>");
+                    checkbooks.push(checks[i].value);
+                }
+            }
+
+            document.getElementById("delbtn").setAttribute("data-delbook", checkbooks);
+            checkbooks = [];
+
+        })
+    }
+}
+
+//åˆ é™¤ä¹¦ç±è°ƒç”¨
+function delbook() {
+    $("#resfooter").hide();
+    delbookid = document.getElementById("delbtn").getAttribute("data-delbook");
+    data = {'data': delbookid};
+
+    url = '/hblib/delbook';
+    $("#resinfo").empty();
+    $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>è¯·ç¨ç­‰ï¼Œæ­£åœ¨å¤„ç†ä¸­...</strong></div>");
+
+
+    $.post(url, data, function (res, status) {
+        $("#resinfo").empty();
+        if (status == 'success' && res.result > 0) {
+            $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>å·²æˆåŠŸåˆ é™¤ä¹¦ç±" + res.result + "æœ¬</strong></div>")
+        } else {
+            $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>åˆ é™¤å¤±è´¥!</strong></div>")
+        }
+        $("#resfooter").show();
+        readinfo();
+
+    }, 'json');
+
+    $("#delsubmit").modal('hide');
+    $("#resmodal").modal('show');
+    document.getElementById("delbtn").removeAttribute("data-delbook");
+}
+
+
+/*
+ æ ¹æ®å…³é”®å­—è·å–ä¿¡æ¯ï¼Œé¡µé¢å±•ç°æ•´ä½“å°è£…
+ */
+
+function readinfo() {
+    var booksinfo = [];
+
+    $("#booklist").empty(); //æ¸…ç©ºæ•°ç›®åˆ—è¡¨
+
+    var keytype = $("#qrytype").val(); //è·å–ç±»å‹
+    var keyword = $("#qryword").val(); //è·å–å…³é”®å­—
+    var areaname = $("#area").text(); //è·å–åŒºåŸŸ
+
+
+    binfourl = '/hblib/getbooklist';
+    qrydata = {'keytype': keytype, 'keyword': keyword, 'areaname': areaname};
+
+    $.get(binfourl, qrydata, function (respone) {
+        booksinfo.push(respone.result);
+
+        booksinfo.map(function (booklist) {
+            showbook(booklist);
+        })
+    }, 'json');
+
+}
+
+
+/*
+ äºé¡µé¢ä¸Šå±•ç°è·å–çš„ä¹¦ç›®åˆ—è¡¨
+ */
+function showbook(booklist) {
+    booklist.map(function (book) {
+
+        var bookinfo =
+            "<tr> " +
+            "<td><input type='checkbox' value='" + book.id + "'></td>" +
+            " <td> " + book.bookname + "</td> " +
+            " <td> " + book.isbn + "</td> " +
+            " <td> " + book.bookwriter + "</td> " +
+            " <td> " + book.booksend + "</td> " +
+            " <td> " + book.bookkind + "</td> " +
+            " <td> " + book.booknumber + "</td> " +
+            " <td> " + book.bookamount + "</td> " +
+            " </tr>";
+
+        $("#booklist").append(bookinfo);
+    });
+}
+
+
+$("#bookfile").change(function () {
+    $(".file-custom").text();
+    var fileinfo = $("#bookfile").val().split('\\');
+    var filename = fileinfo[fileinfo.length - 1];
+    $(".file-custom").text(filename);
+});
+
+
+//å¯¼å…¥ä¹¦ç±excel
+
+function upload() {
+    var filedata = new FormData(document.getElementById("file"));
+    var $areaname = $("#area").text();
+    document.getElementById("inputjson").removeAttribute('data-inputbook');
+    $("#inputjson").show();
+
+    $.ajax({
+        url: "/hblib/upload",
+        type: "POST",
+        data: filedata,
+        contentType: false,
+        processData: false,
+        cache: false,
+        success: function (res) {
+            if (res.result != 'Error' && res.result.length > 0) {
+                $("#inputsubmit").modal('show');
+
+                $("#inputsubmit").on('shown.bs.modal', function () {
+                    $("#inputbookinfo").empty();
+                    res.result.map(function (book) {
+                        if (book[1] != 'isbn') {
+                            if (book[7] == $areaname) {
+
+                                $("#inputbookinfo").append("<p>" + book[0] + "</p>");
+                            } else {
+                                $("#inputbookinfo").append("<p>å¯¼å…¥æ–‡ä»¶ä¸­çš„â€˜å¸‚å·â€™å­—æ®µå†…å®¹ä¸å½“å‰ç®¡ç†åå°æ‰€å±å¸‚å·ä¸ç¬¦ï¼Œè¯·æ£€æŸ¥å¯¼å…¥æ–‡ä»¶ï¼");
+                            }
+
+                        }
+                    })
+                });
+
+                var count = 0;
+                var inputbooks = JSON.parse(JSON.stringify(res)).result;
+                inputbooks.map(function (res) {
+                    if (res[1] != 'isbn') {
+                        if (res[7] == $areaname) {
+
+                        } else {
+                            count = count + 1;
+                        }
+                    }
+                });
+
+                if (count == 0) {
+                    document.getElementById("inputjson").setAttribute('data-inputbook', JSON.stringify(res));
+                } else {
+                    $("#inputjson").hide();
+                }
+            }
+        },
+        dataType: 'json'
+    })
+}
+
+//å°†ä¹¦ç±å­˜å…¥æ•°æ®åº“
+function saveinput() {
+
+    $("#resfooter").hide();
+
+    url = '/hblib/inputbook';
+    $("#resinfo").empty();
+    $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>è¯·ç¨ç­‰ï¼Œæ­£åœ¨å¤„ç†ä¸­...</strong></div>");
+
+    var jsondata = document.getElementById("inputjson").getAttribute("data-inputbook");
+
+    $.post(url, jsondata, function (res, status) {
+        $("#resinfo").empty();
+        if (status == 'success' && res.result > 0) {
+            $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>å·²æˆåŠŸå½•å…¥ä¹¦ç±" + res.result + "æœ¬</strong></div>")
+        } else {
+            $("#resinfo").html("<div class='alert alert-info' role='alert'><strong>å½•å…¥å¤±è´¥!</strong></div>")
+        }
+        $("#resfooter").show();
+        readinfo();
+    }, 'json');
+
+    $("#inputsubmit").modal('hide');
+    $("#resmodal").modal('show');
+
+    document.getElementById("inputjson").removeAttribute("data-inputbook");
+}
+
+//ä¸‹è½½ä¹¦ç±å›¾ç‰‡
+function downpic() {
+    $("#downres").html("<div class='alert alert-info' role='alert'><strong>æ­£åœ¨ä¸‹è½½ä¸­ï¼Œè¯·ç¨ç­‰....</strong></div>");
+
+    var areaname = $("#area").text();
+    var params = {'areaname': areaname};
+    url = '/hblib/downpic';
+
+    $.get(url, params, function (res, status) {
+        if (status == 'success' && res.result > 0) {
+            $("#downres").html("<div class='alert alert-info' role='alert'><strong>" + res.result + "æœ¬ä¹¦ç±å›¾ç‰‡å·²æ›´æ–°</strong></div>");
+        } else {
+            $("#downres").html("<div class='alert alert-info' role='alert'><strong>æ— ä¹¦ç±å›¾ç‰‡éœ€ä¸‹è½½</strong></div>");
+        }
+    }, 'json')
+}

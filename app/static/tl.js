@@ -79,12 +79,10 @@ function readinfo() {
             showbook(booklist);
         });
     }).done(function () {
-        $("#bookinfos").imagesLoaded(function () {
-            $("#bookinfos").masonry({
-                itemSelector: '.book',
-                isAnimated: true,
-                percentPosition: true
-            });
+        $("#bookinfos").masonry({
+            itemSelector: '.book',
+            isAnimated: true,
+            percentPosition: true
         });
     });
 }
