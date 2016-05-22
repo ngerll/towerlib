@@ -7,3 +7,4 @@ pyexcel_xlsx == 0.1.0
 requests == 2.10.0
 gunicorn
 supervisor
+gevent
