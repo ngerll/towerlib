@@ -18,5 +18,3 @@ EXPOSE 80
 
 WORKDIR /var/www/app
 ENTRYPOINT sudo service nginx restart && gunicorn -w3 -b127.0.0.1:5000 tl:app
-
-
