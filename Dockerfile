@@ -1,4 +1,4 @@
-FROM daocloud.io/ubuntu:trusty
+FROM ubuntu:trusty
 
 MAINTAINER Ngerll Joe<huqiao@chinatowercom.cn>
 
