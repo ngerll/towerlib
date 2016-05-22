@@ -6,7 +6,8 @@ def getBorrowInfo(isbn, borrowuser,areaname): #获取借阅记录
     try:
         binfoarr = []
 
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
 
         if len(isbn) > 0:
@@ -52,7 +53,8 @@ def getBorrowInfo(isbn, borrowuser,areaname): #获取借阅记录
 
 def saveborrowinf(bookname, isbn, borrowuser, borrowdate,areaname):
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
         insertsql = "insert into borrow_record (bookname,isbn,b_user,borrow_date,area) values ('{0}','{1}','{2}','{3}','{4}')" .format(bookname, isbn, borrowuser, borrowdate,areaname)
 
@@ -72,7 +74,8 @@ def saveborrowinf(bookname, isbn, borrowuser, borrowdate,areaname):
 
 def backbooks(b_order, back_date, isbn,areaname):
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
         updatesql = "update borrow_record set back_date = '{0}' where b_order = '{1}'" .format(back_date, b_order)
 
@@ -93,7 +96,8 @@ def backbooks(b_order, back_date, isbn,areaname):
 
 def addBook(isbn, areaname):
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
         amountsql = "select bookamount from bookinfo where isbn = '{0}' and area = '{1}' ".format(isbn, areaname)
 
@@ -113,7 +117,8 @@ def addBook(isbn, areaname):
 
 def reduceBook(isbn,areaname):
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
         amountsql = "select bookamount from bookinfo where isbn = '{0}' and area = '{1}' ".format(isbn, areaname)
 
@@ -138,7 +143,8 @@ def reduceBook(isbn,areaname):
 
 def bookobjectsub(b_order):
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
         updatesql = "update borrow_record set object_out = '1' where b_order = '{0}'" .format(b_order)
 
@@ -167,5 +173,5 @@ if __name__ == '__main__':
 
    # print saveborrowinf(bookname, isbn, borrowuser, borrowdate)
 
-   print getBorrowInfo('','胡乔')
+   print getBorrowInfo('','胡乔','省分')
 

@@ -7,7 +7,7 @@ def uauth(username, passwd): #登录验证
     uautharr = []
 
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234',user='root',passwd='!q2w3e4r',db='towerlib',port=9001,charset='utf8')
         cur = conn.cursor()
 
         password = base64.b64decode(base64.b64decode(passwd))
@@ -38,7 +38,8 @@ def uauth(username, passwd): #登录验证
 def changepasswd(username, oldpasswd,newpasswd): #修改密码
 
     try:
-        conn = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
+        conn = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                               charset='utf8')
         cur = conn.cursor()
 
 

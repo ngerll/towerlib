@@ -19,7 +19,7 @@ sys.setdefaultencoding("utf-8")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hb@chinatowe'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:!q2w3e4r@120.25.202.59/towerlib"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:!q2w3e4r@220.249.117.234:9001/towerlib"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)

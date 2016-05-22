@@ -2,20 +2,18 @@
 
 import MySQLdb
 
+urlhost = MySQLdb.connect(host='220.249.117.234', user='root', passwd='!q2w3e4r', db='towerlib', port=9001,
+                          charset='utf8')
 
 
-urlhost = MySQLdb.connect(host='120.25.202.59',user='root',passwd='!q2w3e4r',db='towerlib',port=3306,charset='utf8')
-
-
-def getBookAmount(keytype,keyword):
+def getBookAmount(keytype, keyword):
     try:
         conn = urlhost
         cur = conn.cursor()
         if len(keyword) > 0:
-            sqlstr = "select * from bookinfo where {0} like '%{1}%' ".format(keytype,keyword)
+            sqlstr = "select * from bookinfo where {0} like '%{1}%' ".format(keytype, keyword)
         else:
             sqlstr = "select * from bookinfo"
-
 
         cur.execute(sqlstr)
         pagecount = cur.rowcount
@@ -28,17 +26,17 @@ def getBookAmount(keytype,keyword):
         conn.close()
 
 
-def getBookInfo(keytype,keyword,page):
+def getBookInfo(keytype, keyword, page):
     bookarry = []
     try:
         conn = urlhost
         cur = conn.cursor()
 
-        start = (page-1)*10
+        start = (page - 1) * 10
         end = 10
 
         if len(keyword) > 0:
-            sqlstr = "select * from bookinfo where {0} like '%{1}%' limit {2},{3}".format(keytype,keyword,start,end)
+            sqlstr = "select * from bookinfo where {0} like '%{1}%' limit {2},{3}".format(keytype, keyword, start, end)
         else:
             sqlstr = "select * from bookinfo limit %d,%d" % (start, end)
 
@@ -59,7 +57,7 @@ def getBookInfo(keytype,keyword,page):
                      'booksend': booksend,
                      'bookkind': bookkind,
                      'bookamount': bookamount,
-                     'isbn':isbn}
+                     'isbn': isbn}
 
             bookarry.append(binfo)
 
@@ -72,14 +70,14 @@ def getBookInfo(keytype,keyword,page):
         conn.close()
 
 
-def getBookList(keytype,keyword):
+def getBookList(keytype, keyword):
     bookarry = []
     try:
         conn = urlhost
         cur = conn.cursor()
 
         if len(keyword) > 0:
-            sqlstr = "select * from bookinfo where {0} like '%{1}%'".format(keytype,keyword)
+            sqlstr = "select * from bookinfo where {0} like '%{1}%'".format(keytype, keyword)
         else:
             sqlstr = "select * from bookinfo"
 
@@ -100,7 +98,7 @@ def getBookList(keytype,keyword):
                      'booksend': booksend,
                      'bookkind': bookkind,
                      'bookamount': bookamount,
-                     'isbn':isbn}
+                     'isbn': isbn}
 
             bookarry.append(binfo)
 
@@ -113,12 +111,16 @@ def getBookList(keytype,keyword):
         conn.close()
 
 
-def savebookinfo(bookname,bookisbn,bookwriter,booksend,bookkind,booknumber):
+def savebookinfo(bookname, bookisbn, bookwriter, booksend, bookkind, booknumber):
     try:
         conn = urlhost
         cur = conn.cursor()
 
-        savesql = "insert into bookinfo values ('{0}','{1}','{2}','{3}','{4}',{5},{6})".format(bookname,bookisbn,bookwriter,booksend,bookkind,int(booknumber),int(booknumber))
+        savesql = "insert into bookinfo values ('{0}','{1}','{2}','{3}','{4}',{5},{6})".format(bookname, bookisbn,
+                                                                                               bookwriter, booksend,
+                                                                                               bookkind,
+                                                                                               int(booknumber),
+                                                                                               int(booknumber))
 
         cur.execute(savesql)
         conn.commit()
@@ -145,6 +147,6 @@ if __name__ == '__main__':
 
     # print DB.savebookinfo(bookname,bookisbn,bookwriter,booksend,bookkind,booknumber)
 
-    print getBookAmount(keytype,keyword)
+    print getBookAmount(keytype, keyword)
 
     # print getBookAmount(keytype, keyword)
