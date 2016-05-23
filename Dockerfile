@@ -10,12 +10,11 @@ RUN apt-get -y install python-mysqldb
 
 copy app /var/www/app
 RUN sudo pip install -r /var/www/app/requirements.txt
-copy supervisord.conf /etc/supervisord.conf
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 copy nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
 WORKDIR /var/www/app
-RUN sudo service nginx start
-#CMD gunicorn -w3 -b127.0.0.1:5000 tl:app
+RUN chmod 777 init.sh
+CMD ["/var/www/app/init.sh"]
