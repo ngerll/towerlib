@@ -18,4 +18,4 @@ EXPOSE 80
 
 WORKDIR /var/www/app
 RUN sudo service nginx start
-CMD gunicorn -w3 -b127.0.0.1:5000 tl:app
+#CMD gunicorn -w3 -b127.0.0.1:5000 tl:app
