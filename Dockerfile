@@ -17,5 +17,5 @@ copy nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 
 WORKDIR /var/www/app
-ENTRYPOINT sudo service nginx start
+RUN sudo service nginx start
 CMD gunicorn -w3 -b127.0.0.1:5000 tl:app
