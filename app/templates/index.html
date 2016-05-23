@@ -203,8 +203,6 @@
                     <label for="exampleSelect1">选择所属单位</label>
                     <select class="form-control btn-danger" id="selectarea">
                         <option value="">..请选择</option>
-                        <option value="branch">省分</option>
-                        <option value="huangshi">黄石</option>
                     </select>
                 </div>
                 <div class="lead">
@@ -232,10 +230,29 @@
 <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 <script>
 
+
     function login() {
         var $loginarea = $('#selectarea').val();
         window.location.href = '/hblib/' + $loginarea;
     }
+
+    $(document).ready(function () {
+        $.ajaxSetup({cache: false});
+
+        var url = '/hblib/arealist';
+        $.get(url,function (data) {
+            data.result.map(function (res) {
+                if (res.areacode == 'hubei') {
+                    var $sv = "<option value='branch'> " + res.areaname + "</option>"
+                }else{
+                    var $sv = "<option value='" + res.areacode + "'>"+ res.areaname + "</option>"
+                }
+
+                $("#selectarea").append($sv);
+
+            })
+        },'json')
+    })
 
 
 </script>

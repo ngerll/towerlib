@@ -63,10 +63,43 @@ def changepasswd(username, oldpasswd,newpasswd): #修改密码
         conn.close()
 
 
+def getarealist(): #登录验证
+    areaarr = []
+
+    try:
+        conn = MySQLdb.connect(host='220.249.117.234',user='root',passwd='!q2w3e4r',db='towerlib',port=9001,charset='utf8')
+        cur = conn.cursor()
+
+
+        areaqry = "select * from adminuser"
+        cur.execute(areaqry)
+
+        rcount = cur.rowcount
+        if rcount > 0:
+            results = cur.fetchall()
+
+            for result in results:
+                areacode = result[0]
+                areaname = result[2]
+
+                arealist = {'areaname':areaname,
+                            'areacode':areacode}
+
+                areaarr.append(arealist)
+
+        return areaarr
+
+    except:
+        return 'Error'
+    finally:
+        cur.close()
+        conn.close()
+
 if __name__ == '__main__':
     username = 'hubei'
     newpasswd = '222222'
     oldpasswd = '123456'
 
     # print uauth(username,passwd)['result'][0]['areaname']
-    print changepasswd(username,oldpasswd,newpasswd)
+    # print changepasswd(username,oldpasswd,newpasswd)
+    print getarealist()

@@ -3,7 +3,7 @@
 from flask import Flask, request, render_template, session, url_for, redirect, jsonify
 from bookinfo import getBookAmount, getBookInfo, getBookList, savebookinfo, delbook
 from borrowinfo import getBorrowInfo, saveborrowinf, backbooks, bookobjectsub
-from userauth import uauth, changepasswd
+from userauth import uauth, changepasswd ,getarealist
 from flask_sqlalchemy import SQLAlchemy
 import flask_excel
 import pyexcel_xls
@@ -304,3 +304,11 @@ def downpic():
         downres = jsonify({'result': getbookpic.getisbn(areaname)})
 
         return downres
+
+#获取上线市州
+@app.route('/hblib/arealist',methods=['GET','POST'])
+def getarea():
+    if request.method == 'GET':
+        areaarr =jsonify({'result': getarealist()})
+
+        return areaarr
