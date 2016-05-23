@@ -17,4 +17,4 @@ EXPOSE 80
 
 WORKDIR /var/www/app
 RUN chmod 777 init.sh
-CMD ["/var/www/app/init.sh"]
+ENTRYPOINT /var/www/app/init.sh
