@@ -306,7 +306,7 @@ def downpic():
         return downres
 
 #获取上线市州
-@app.route('/hblib/arealist',methods=['GET','POST'])
+@app.route('/hblib/arealist',methods=['GET',])
 def getarea():
     if request.method == 'GET':
         areaarr =jsonify({'result': getarealist()})
